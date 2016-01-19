@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SetClc</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="set">Множини</string>
+    <string name="result">Результат</string>
+
+</resources>

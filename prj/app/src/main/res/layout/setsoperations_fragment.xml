@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:elevation="10dp"
+        android:layout_height="@dimen/sc_heigth">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="A"
+            android:id="@+id/FA"
+            style="@style/sc_button"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            android:id="@+id/FB"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            android:id="@+id/FC"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D"
+            android:id="@+id/FD"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F"
+            android:id="@+id/FF"
+            android:layout_weight="1"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/sc_top_margin"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sc_heigth">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+
+            android:id="@+id/plus"
+            style="@style/sc_button"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:id="@+id/multi"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:id="@+id/minus"
+            android:layout_weight="1"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/sc_top_margin"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sc_heigth">
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:id="@+id/SA"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            android:id="@+id/SB"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C"
+            android:id="@+id/SC"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D"
+            android:id="@+id/SD"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F"
+            android:id="@+id/SF"
+            android:layout_weight="1"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+</LinearLayout>

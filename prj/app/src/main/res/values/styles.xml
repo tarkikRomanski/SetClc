@@ -1,0 +1,34 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="sc_button">
+        <item name="android:background">@color/primary</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="sc_text">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/dark_primary</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="sc_inverce_button">
+        <item name="android:background">@color/accent</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="sc_inverce_text">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/dark_accent</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+
+</resources>
