@@ -1,14 +1,24 @@
 package com.tarkik.setclc;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.SortedSet;
@@ -48,14 +58,37 @@ public class MainActivity extends FragmentActivity {
     private View firstBTN = null;
     private View secondBTN = null;
 
+    private ImageView ivResult;
+
     private ArrayList fMatr = new ArrayList();
     private ArrayList sMatr = new ArrayList();
     private SortedSet resultArr = new TreeSet();
     private Iterator resultIter;
+
+    private int deviceWidth;
+
+
+    Bitmap bitmap;
+    Canvas canvas;
+    Paint paint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+            //
+        Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+        Point p = new Point();
+        display.getSize(p);
+        int deviceWidth = p.x;
+        ivResult = (ImageView)findViewById(R.id.result_diagram);
+        bitmap = Bitmap.createBitmap(deviceWidth, deviceWidth, Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+            //
+
+
 
         matrixA = (EditText)findViewById(R.id.matrixA);
         matrixB = (EditText)findViewById(R.id.matrixB);
@@ -421,16 +454,24 @@ public class MainActivity extends FragmentActivity {
     private SortedSet unionMatrix(ArrayList firstMatrix, ArrayList secondMatrix){
         SortedSet unionM = new TreeSet();
         for (int i=0; i < firstMatrix.size(); i++) {
-            unionM.add(firstMatrix.get(i));
+            try {
+                unionM.add(Integer.parseInt(firstMatrix.get(i).toString()));
+            } catch (Error e) {
+                Toast.makeText(this.getApplicationContext(), "Помилкове введення", Toast.LENGTH_SHORT);
+            }
         }
-        for (int j=0; j < secondMatrix.size(); j++){
-            for (int i=0; i < firstMatrix.size(); i++)
+        for (int j=0; j < secondMatrix.size(); j++) {
+            for (int i = 0; i < firstMatrix.size(); i++)
                 if (firstMatrix.get(i) != secondMatrix.get(j)) {
-                    unionM.add(secondMatrix.get(j));
-                    break;
+                    try {
+                        unionM.add(Integer.parseInt(secondMatrix.get(j).toString()));
+                        break;
+                    } catch (Error e) {
+                        Toast.makeText(this.getApplicationContext(), "Помилкове введення", Toast.LENGTH_SHORT);
+                    }
                 }
         }
-
+        drawUnion(this.paint, this.canvas, this.bitmap);
         return unionM;
     }
 
@@ -443,12 +484,14 @@ public class MainActivity extends FragmentActivity {
         for (int i=0; i < lengthFirst; i++) {
             for (int j=0; j<lengthSecond; j++) {
                 if(firstMarix.get(i).equals(secondMatrix.get(j))) {
-                    crossingM.add(firstMarix.get(i));
+                    crossingM.add(Integer.parseInt(firstMarix.get(i).toString()));
                     break;
                 }
             }
         }
-
+        if(crossingM.size() > 0)
+            drawCrossing(this.paint, this.canvas, this.bitmap);
+        else drawFull(this.paint, this.canvas, this.bitmap);
         return crossingM;
     }
 
@@ -464,10 +507,69 @@ public class MainActivity extends FragmentActivity {
                 }
             }
             if(getThisValue)
-                minusM.add(firstMatrix.get(i));
+                minusM.add(Integer.parseInt(firstMatrix.get(i).toString()));
         }
+        drawMinus(this.paint, this.canvas, this.bitmap);
         return minusM;
     }
 
+    private void drawCrossing(Paint paint, Canvas canvas, Bitmap bitmap) {
+        clearDrawing(canvas);
+        paint.setColor(getResources().getColor(R.color.primary));
+        paint.setAlpha(100);
+        canvas.drawCircle(150, 150, 100, paint);
+        paint.setColor(getResources().getColor(R.color.dark_primary));
+        paint.setAlpha(100);
+        canvas.drawCircle(280, 150, 100, paint);
+        paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
+        paint.setColor(getResources().getColor(R.color.accent));
+        canvas.drawText("A", 130, 150, paint);
+        canvas.drawText("B", 280, 150, paint);
+        ivResult.setImageBitmap(bitmap);
+    }
 
+    private void drawUnion(Paint paint, Canvas canvas, Bitmap bitmap) {
+        clearDrawing(canvas);
+        paint.setColor(getResources().getColor(R.color.primary));
+        canvas.drawCircle(150, 150, 100, paint);
+        canvas.drawCircle(280, 150, 100, paint);
+        paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
+        paint.setColor(getResources().getColor(R.color.accent));
+        canvas.drawText("A", 130, 150, paint);
+        canvas.drawText("B", 280, 150, paint);
+
+        ivResult.setImageBitmap(bitmap);
+    }
+
+    private void drawMinus(Paint paint, Canvas canvas, Bitmap bitmap) {
+        clearDrawing(canvas);
+        paint.setColor(getResources().getColor(R.color.primary));
+        canvas.drawCircle(150, 150, 100, paint);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(280, 150, 100, paint);
+        paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
+        paint.setColor(getResources().getColor(R.color.accent));
+        canvas.drawText("A", 130, 150, paint);
+        canvas.drawText("B", 280, 150, paint);
+        ivResult.setImageBitmap(bitmap);
+    }
+
+    private void drawFull(Paint paint, Canvas canvas, Bitmap bitmap) {
+        clearDrawing(canvas);
+        paint.setColor(getResources().getColor(R.color.primary));
+        paint.setAlpha(100);
+        canvas.drawCircle(150, 150, 80, paint);
+        paint.setColor(getResources().getColor(R.color.dark_primary));
+        paint.setAlpha(100);
+        canvas.drawCircle(350, 150, 80, paint);
+        paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
+        paint.setColor(getResources().getColor(R.color.accent));
+        canvas.drawText("A", 150, 150, paint);
+        canvas.drawText("B", 350, 150, paint);
+        ivResult.setImageBitmap(bitmap);
+    }
+
+    private void clearDrawing(Canvas canvas) {
+        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+    }
 }

@@ -16,8 +16,7 @@
             style="@style/sc_text" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="@dimen/sc_heigth">
 
@@ -28,7 +27,12 @@
             android:text="{ }"
             android:id="@+id/result"
             style="@style/sc_inverce_text" />
-    </LinearLayout>
+    </HorizontalScrollView>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_diagram"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
