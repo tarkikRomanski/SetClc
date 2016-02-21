@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,6 +29,7 @@ import java.util.Iterator;
 import static android.view.View.GONE;
 
 public class MainActivity extends FragmentActivity {
+    private static final String logTag = "SetClcLOG: ";
 
     private EditText matrixA;
     private EditText matrixB;
@@ -66,6 +68,14 @@ public class MainActivity extends FragmentActivity {
     private Iterator resultIter;
 
     private int deviceWidth;
+    private int leftac1;
+    private int left1;
+    private int diametr;
+    private int leftac2;
+    private int left2 = -60;
+    private int radius;
+    private int left3;
+    private int canvaHeight;
 
 
     Bitmap bitmap;
@@ -81,13 +91,19 @@ public class MainActivity extends FragmentActivity {
         Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
         Point p = new Point();
         display.getSize(p);
-        int deviceWidth = p.x;
+        deviceWidth = p.x;
         ivResult = (ImageView)findViewById(R.id.result_diagram);
-        bitmap = Bitmap.createBitmap(deviceWidth, deviceWidth, Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            //
-
+        leftac1 = (deviceWidth*5)/100;
+        left1 = (deviceWidth*6)/100 + 30;
+        diametr = (deviceWidth*44)/100;
+        leftac2 = (deviceWidth*2)/100;
+        radius = diametr/2;
+        left3 = left1 + diametr + left2 + radius;
+        canvaHeight = diametr + 2*left1;
+        bitmap = Bitmap.createBitmap(deviceWidth, canvaHeight, Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        //
 
 
         matrixA = (EditText)findViewById(R.id.matrixA);
@@ -513,30 +529,33 @@ public class MainActivity extends FragmentActivity {
         return minusM;
     }
 
+
     private void drawCrossing(Paint paint, Canvas canvas, Bitmap bitmap) {
         clearDrawing(canvas);
         paint.setColor(getResources().getColor(R.color.primary));
         paint.setAlpha(100);
-        canvas.drawCircle(150, 150, 100, paint);
+        canvas.drawCircle((left1 + radius), (canvaHeight / 2), radius, paint);
         paint.setColor(getResources().getColor(R.color.dark_primary));
         paint.setAlpha(100);
-        canvas.drawCircle(280, 150, 100, paint);
+        canvas.drawCircle(left3, (canvaHeight / 2), radius, paint);
+        Log.i(logTag, "Width " + deviceWidth);
+        Log.i(logTag, "left3: " + left3);
         paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
         paint.setColor(getResources().getColor(R.color.accent));
-        canvas.drawText("A", 130, 150, paint);
-        canvas.drawText("B", 280, 150, paint);
+        canvas.drawText("A", (left1 + radius), (canvaHeight / 2), paint);
+        canvas.drawText("B", left3, (canvaHeight/2), paint);
         ivResult.setImageBitmap(bitmap);
     }
 
     private void drawUnion(Paint paint, Canvas canvas, Bitmap bitmap) {
         clearDrawing(canvas);
         paint.setColor(getResources().getColor(R.color.primary));
-        canvas.drawCircle(150, 150, 100, paint);
-        canvas.drawCircle(280, 150, 100, paint);
+        canvas.drawCircle((left1 + radius), (canvaHeight / 2), radius, paint);
+        canvas.drawCircle(left3, (canvaHeight / 2), radius, paint);
         paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
         paint.setColor(getResources().getColor(R.color.accent));
-        canvas.drawText("A", 130, 150, paint);
-        canvas.drawText("B", 280, 150, paint);
+        canvas.drawText("A", (left1 + radius), (canvaHeight / 2), paint);
+        canvas.drawText("B", left3, (canvaHeight / 2), paint);
 
         ivResult.setImageBitmap(bitmap);
     }
@@ -544,13 +563,13 @@ public class MainActivity extends FragmentActivity {
     private void drawMinus(Paint paint, Canvas canvas, Bitmap bitmap) {
         clearDrawing(canvas);
         paint.setColor(getResources().getColor(R.color.primary));
-        canvas.drawCircle(150, 150, 100, paint);
+        canvas.drawCircle((left1 + radius), (canvaHeight / 2), radius, paint);
         paint.setColor(Color.WHITE);
-        canvas.drawCircle(280, 150, 100, paint);
+        canvas.drawCircle(left3, (canvaHeight / 2), radius, paint);
         paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
         paint.setColor(getResources().getColor(R.color.accent));
-        canvas.drawText("A", 130, 150, paint);
-        canvas.drawText("B", 280, 150, paint);
+        canvas.drawText("A", (left1 + radius), (canvaHeight / 2), paint);
+        canvas.drawText("B", left3, (canvaHeight / 2), paint);
         ivResult.setImageBitmap(bitmap);
     }
 
@@ -558,14 +577,14 @@ public class MainActivity extends FragmentActivity {
         clearDrawing(canvas);
         paint.setColor(getResources().getColor(R.color.primary));
         paint.setAlpha(100);
-        canvas.drawCircle(150, 150, 80, paint);
+        canvas.drawCircle((leftac1 + radius), (canvaHeight / 2), radius, paint);
         paint.setColor(getResources().getColor(R.color.dark_primary));
         paint.setAlpha(100);
-        canvas.drawCircle(350, 150, 80, paint);
+        canvas.drawCircle((leftac1 + diametr + leftac2 + radius), (canvaHeight / 2), radius, paint);
         paint.setTextSize(getResources().getDimension(R.dimen.txt_size));
         paint.setColor(getResources().getColor(R.color.accent));
-        canvas.drawText("A", 150, 150, paint);
-        canvas.drawText("B", 350, 150, paint);
+        canvas.drawText("A", (leftac1 + radius), (canvaHeight / 2), paint);
+        canvas.drawText("B", (leftac1 + diametr + leftac2 + radius), (canvaHeight / 2), paint);
         ivResult.setImageBitmap(bitmap);
     }
 
