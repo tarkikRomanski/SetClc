@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SetClc</string>
+    <string name="action_settings">პარამეტრები</string>
+    <string name="set">Sets</string>
+    <string name="result">შედეგი</string>
+</resources>

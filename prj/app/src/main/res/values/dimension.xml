@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="sc_heigth">40dp</dimen>
+    <dimen name="sc_dublheigth">60dp</dimen>
     <dimen name="sc_top_margin">5dp</dimen>
-    <dimen name="txt_size">10pt</dimen>
+    <dimen name="txt_size">20sp</dimen>
 </resources>

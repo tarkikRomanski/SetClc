@@ -5,7 +5,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="@string/set"
+        android:text="@string/complex_set"
         android:id="@+id/matrix_btn"
         style="@style/sc_button"
         android:layout_weight="1" />

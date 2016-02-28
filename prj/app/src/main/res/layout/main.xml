@@ -18,10 +18,16 @@
             layout="@layout/entersets_fragment" />
 
         <include
+            layout="@layout/calculator_fragment"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <include
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             layout="@layout/setsoperations_fragment"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/expressions_area" />
 
         <include
             android:layout_width="fill_parent"

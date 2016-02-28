@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/calculator">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="A"
+            android:id="@+id/clickA"
+            style="@style/sc_button"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="B"
+            android:id="@+id/clickB"
+            android:layout_weight="1"
+            android:visibility="gone" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:elevation="10dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="C"
+            android:id="@+id/clickC"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="D"
+            android:id="@+id/clickD"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <Button
+            style="@style/sc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:text="F"
+            android:id="@+id/clickF"
+            android:layout_weight="1"
+            android:visibility="gone" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:elevation="10dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:layout_weight="1"
+            style="@style/sc_button"
+            android:id="@+id/clickPlus"
+            android:text="+"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:layout_weight="1"
+            style="@style/sc_button"
+            android:id="@+id/clickCross"
+            android:text="*"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:layout_weight="1"
+            style="@style/sc_button"
+            android:id="@+id/clickMinus"
+            android:text="/"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:elevation="10dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:layout_weight="1"
+            style="@style/sc_button"
+            android:id="@+id/clickOpen"
+            android:text="("/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sc_heigth"
+            android:layout_weight="1"
+            style="@style/sc_button"
+            android:id="@+id/clickClose"
+            android:text=")"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sc_dublheigth"
+            android:layout_weight="10">
+            <TextView
+                android:text=" "
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:id="@+id/expression"
+                style="@style/sc_inverce_text"/>
+        </HorizontalScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sc_heigth"
+            style="@style/sc_button"
+            android:layout_marginTop="10dp"
+            android:text="d"
+            android:layout_weight="65"
+            android:id="@+id/delete" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sc_heigth"
+        style="@style/sc_button"
+        android:text="@string/calculate"
+        android:id="@+id/calculate"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:elevation="10dp"/>
+</LinearLayout>
