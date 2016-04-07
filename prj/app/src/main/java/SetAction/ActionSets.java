@@ -1,6 +1,8 @@
 package SetAction;
 
 
+import android.util.Log;
+
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -8,16 +10,26 @@ public abstract class ActionSets {
 
     public static SortedSet unionMatrix(SortedSet firstMatrix, SortedSet secondMatrix, DrawingSets drawingSets){
         SortedSet unionM = new TreeSet();
+
+        Log.i("Bsdfsfs", "Start union");
+        Log.i("Bsdfsfs", firstMatrix.toString());
+        Log.i("Bsdfsfs", secondMatrix.toString());
+
         for (int i=0; i < firstMatrix.size(); i++) {
                 unionM.add(firstMatrix.toArray()[i].toString());
+            Log.i("Bsdfsfs", "Union add " + firstMatrix.toArray()[i].toString());
         }
 
-        for (int j=0; j < secondMatrix.size(); j++) {
-            for (int i = 0; i < firstMatrix.size(); i++)
-                if (firstMatrix.toArray()[i] != secondMatrix.toArray()[j]) {
-                    unionM.add(secondMatrix.toArray()[i].toString());
-                    break;
-                }
+        int unionCount = unionM.size();
+
+        for (int i=0; i < unionCount; i++) {
+            for (int j = 0; j < secondMatrix.size(); j++)
+                if (unionM.toArray()[i] != secondMatrix.toArray()[j]) {
+                    Log.i("Bsdfsfs", unionM.toArray()[i] + " != " + secondMatrix.toArray()[j].toString());
+                    unionM.add(secondMatrix.toArray()[j].toString());
+                    Log.i("Bsdfsfs", "Union add " + secondMatrix.toArray()[j].toString());
+                } else
+                Log.i("Bsdfsfs", unionM.toArray()[i] + " == " + secondMatrix.toArray()[j].toString());
         }
         if(drawingSets != null)
             drawingSets.drawUnion();

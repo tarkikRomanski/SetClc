@@ -242,20 +242,20 @@ public class MainActivity extends FragmentActivity {
                 SortedSet mF = new TreeSet();
                 Log.i("D", "start");
                 if (matrixA.getText().length() > 0)
-                    for (int i=0; i < matrixA.getText().length(); i++)
-                        mA.add(matrixA.getText().toString().toCharArray()[i]);
+                    for (int i=0; i < matrixA.getText().toString().split(" ").length; i++)
+                        mA.add(matrixA.getText().toString().split(" ")[i]);
                 if (matrixB.getText().length() > 0)
-                    for (int i=0; i < matrixB.getText().length(); i++)
-                        mB.add(matrixB.getText().toString().toCharArray()[i]);
+                    for (int i=0; i < matrixB.getText().toString().split(" ").length; i++)
+                        mB.add(matrixB.getText().toString().split(" ")[i]);
                 if (matrixC.getText().length() > 0)
-                    for (int i=0; i < matrixC.getText().length(); i++)
-                        mC.add(matrixC.getText().toString().toCharArray()[i]);
+                    for (int i=0; i < matrixC.getText().toString().split(" ").length; i++)
+                        mC.add(matrixC.getText().toString().split(" ")[i]);
                 if (matrixD.getText().length() > 0)
-                    for (int i=0; i < matrixD.getText().length(); i++)
-                        mD.add(matrixD.getText().toString().toCharArray()[i]);
+                    for (int i=0; i < matrixD.getText().toString().split(" ").length; i++)
+                        mD.add(matrixD.getText().toString().split(" ")[i]);
                 if (matrixF.getText().length() > 0)
-                    for (int i=0; i < matrixF.getText().length(); i++)
-                        mF.add(matrixF.getText().toString().toCharArray()[i]);
+                    for (int i=0; i < matrixF.getText().toString().split(" ").length; i++)
+                        mF.add(matrixF.getText().toString().split(" ")[i]);
                 resultArr.clear();
                 RPN.convertToRPN(expression.getText().toString());
                 resultArr = CalculateExpression.calculate(expression.getText().toString(), mA, mB, mC, mD, mF);
