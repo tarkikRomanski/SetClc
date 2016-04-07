@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">SetClc</string>
     <string name="action_settings">ρυθμίσεις</string>
-    <string name="set">σκηνικά</string>
+    <string name="set">Ένας απλός\nυπολογισμός</string>
     <string name="result">αποτέλεσμα</string>
+    <string name="complex_set">καταρτίζονται\nκαταμέτρηση</string>
+    <string name="calculate">υπολογίζω</string>
 </resources>

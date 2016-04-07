@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">SetClc</string>
     <string name="action_settings">პარამეტრები</string>
-    <string name="set">Sets</string>
+    <string name="set">მარტივი\nგაანგარიშებით</string>
     <string name="result">შედეგი</string>
+    <string name="complex_set">შედგენილი\nრაოდენობა</string>
+    <string name="calculate">იმედი</string>
 </resources>

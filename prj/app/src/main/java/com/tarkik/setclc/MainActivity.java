@@ -161,40 +161,44 @@ public class MainActivity extends FragmentActivity {
         bSD.setVisibility(GONE);
         bSF.setVisibility(GONE);
 
+        clickA.setVisibility(View.GONE);
+        clickB.setVisibility(View.GONE);
+        clickC.setVisibility(View.GONE);
+        clickCross.setVisibility(View.GONE);
+        clickD.setVisibility(View.GONE);
+        clickF.setVisibility(View.GONE);
+        calculate.setVisibility(View.GONE);
+        clickMinus.setVisibility(View.GONE);
+        clickPlus.setVisibility(View.GONE);
+        expression.setVisibility(GONE);
+        delete.setVisibility(GONE);
+        clickClose.setVisibility(GONE);
+        clickOpen.setVisibility(GONE);
+
         View.OnClickListener selectedMode = new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                drawingSets.clearDrawing();
-                if(matrixA.getText().toString().length() == 0) bFA.setVisibility(GONE); else bFA.setVisibility(View.VISIBLE);
-                if(matrixB.getText().toString().length() == 0) bFB.setVisibility(GONE); else bFB.setVisibility(View.VISIBLE);
-                if(matrixC.getText().toString().length() == 0) bFC.setVisibility(GONE); else bFC.setVisibility(View.VISIBLE);
-                if(matrixD.getText().toString().length() == 0) bFD.setVisibility(GONE); else bFD.setVisibility(View.VISIBLE);
-                if(matrixF.getText().toString().length() == 0) bFF.setVisibility(GONE); else bFF.setVisibility(View.VISIBLE);
-
-                minus.setVisibility(GONE);
-                plus.setVisibility(GONE);
-                multi.setVisibility(GONE);
-                result.setVisibility(GONE);
-                text_res.setVisibility(GONE);
-
-                bSA.setVisibility(GONE);
-                bSB.setVisibility(GONE);
-                bSC.setVisibility(GONE);
-                bSD.setVisibility(GONE);
-                bSF.setVisibility(GONE);
-
-                if(matrixA.getText().toString().length() == 0) clickA.setVisibility(GONE); else clickA.setVisibility(View.VISIBLE);
-                if(matrixB.getText().toString().length() == 0) clickB.setVisibility(GONE); else clickB.setVisibility(View.VISIBLE);
-                if(matrixC.getText().toString().length() == 0) clickC.setVisibility(GONE); else clickC.setVisibility(View.VISIBLE);
-                //clickCross.setVisibility(GONE);
-                if(matrixD.getText().toString().length() == 0) clickD.setVisibility(GONE); else clickD.setVisibility(View.VISIBLE);
-                if(matrixF.getText().toString().length() == 0) clickF.setVisibility(GONE); else clickF.setVisibility(View.VISIBLE);
-                //calculate.setVisibility(GONE);
-                //clickMinus.setVisibility(GONE);
-                //clickPlus.setVisibility(GONE);
-
-                /*if(justMode) {
+                if(justMode) {
                     justMode = false;
+
+                    minus.setVisibility(GONE);
+                    plus.setVisibility(GONE);
+                    multi.setVisibility(GONE);
+                    result.setVisibility(GONE);
+                    text_res.setVisibility(GONE);
+
+                    bSA.setVisibility(GONE);
+                    bSB.setVisibility(GONE);
+                    bSC.setVisibility(GONE);
+                    bSD.setVisibility(GONE);
+                    bSF.setVisibility(GONE);
+
+                    bFA.setVisibility(GONE);
+                    bFB.setVisibility(GONE);
+                    bFC.setVisibility(GONE);
+                    bFD.setVisibility(GONE);
+                    bFF.setVisibility(GONE);
+
                     matrixMode.setText(getResources().getText(R.string.set));
                     if(matrixA.getText().toString().length() != 0) clickA.setVisibility(View.VISIBLE);
                     if(matrixB.getText().toString().length() != 0) clickB.setVisibility(View.VISIBLE);
@@ -205,10 +209,47 @@ public class MainActivity extends FragmentActivity {
                     calculate.setVisibility(View.VISIBLE);
                     clickMinus.setVisibility(View.VISIBLE);
                     clickPlus.setVisibility(View.VISIBLE);
+                    expression.setVisibility(View.VISIBLE);
+                    delete.setVisibility(View.VISIBLE);
+                    clickClose.setVisibility(View.VISIBLE);
+                    clickOpen.setVisibility(View.VISIBLE);
                 } else {
                     justMode = true;
+
+                    clickA.setVisibility(View.GONE);
+                    clickB.setVisibility(View.GONE);
+                    clickC.setVisibility(View.GONE);
+                    clickCross.setVisibility(View.GONE);
+                    clickD.setVisibility(View.GONE);
+                    clickF.setVisibility(View.GONE);
+                    calculate.setVisibility(View.GONE);
+                    clickMinus.setVisibility(View.GONE);
+                    clickPlus.setVisibility(View.GONE);
+                    expression.setVisibility(GONE);
+                    delete.setVisibility(GONE);
+                    clickClose.setVisibility(GONE);
+                    clickOpen.setVisibility(GONE);
+
                     matrixMode.setText(getResources().getText(R.string.complex_set));
-                }*/
+                    drawingSets.clearDrawing();
+                    if(matrixA.getText().toString().length() == 0) bFA.setVisibility(GONE); else bFA.setVisibility(View.VISIBLE);
+                    if(matrixB.getText().toString().length() == 0) bFB.setVisibility(GONE); else bFB.setVisibility(View.VISIBLE);
+                    if(matrixC.getText().toString().length() == 0) bFC.setVisibility(GONE); else bFC.setVisibility(View.VISIBLE);
+                    if(matrixD.getText().toString().length() == 0) bFD.setVisibility(GONE); else bFD.setVisibility(View.VISIBLE);
+                    if(matrixF.getText().toString().length() == 0) bFF.setVisibility(GONE); else bFF.setVisibility(View.VISIBLE);
+
+                    minus.setVisibility(GONE);
+                    plus.setVisibility(GONE);
+                    multi.setVisibility(GONE);
+                    result.setVisibility(GONE);
+                    text_res.setVisibility(GONE);
+
+                    bSA.setVisibility(GONE);
+                    bSB.setVisibility(GONE);
+                    bSC.setVisibility(GONE);
+                    bSD.setVisibility(GONE);
+                    bSF.setVisibility(GONE);
+                }
             }
         };
 
@@ -486,8 +527,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (matrixA.getText().toString().length() > 0) {
-                    bFA.setVisibility(View.VISIBLE);
-                    clickA.setVisibility(View.VISIBLE);
+                    if(justMode) bFA.setVisibility(View.VISIBLE);
+                    else clickA.setVisibility(View.VISIBLE);
                 } else {
                     bFA.setVisibility(GONE);
                     clickA.setVisibility(GONE);
@@ -510,8 +551,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (matrixB.getText().toString().length() > 0) {
-                    bFB.setVisibility(View.VISIBLE);
-                    clickB.setVisibility(View.VISIBLE);
+                    if(justMode) bFB.setVisibility(View.VISIBLE);
+                    else clickB.setVisibility(View.VISIBLE);
                 } else {
                     bFB.setVisibility(GONE);
                     clickB.setVisibility(GONE);
@@ -534,8 +575,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (matrixC.getText().toString().length() > 0) {
-                    bFC.setVisibility(View.VISIBLE);
-                    clickC.setVisibility(View.VISIBLE);
+                    if(justMode) bFC.setVisibility(View.VISIBLE);
+                    else clickC.setVisibility(View.VISIBLE);
                 } else {
                     bFC.setVisibility(GONE);
                     clickC.setVisibility(GONE);
@@ -558,8 +599,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (matrixD.getText().toString().length() > 0) {
-                    bFD.setVisibility(View.VISIBLE);
-                    clickD.setVisibility(View.VISIBLE);
+                    if(justMode) bFD.setVisibility(View.VISIBLE);
+                    else clickD.setVisibility(View.VISIBLE);
                 } else {
                     bFD.setVisibility(GONE);
                     clickD.setVisibility(GONE);
@@ -582,8 +623,8 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (matrixF.getText().toString().length() > 0) {
-                    bFF.setVisibility(View.VISIBLE);
-                    clickF.setVisibility(View.VISIBLE);
+                    if(justMode) bFF.setVisibility(View.VISIBLE);
+                    else clickF.setVisibility(View.VISIBLE);
                 } else {
                     bFF.setVisibility(GONE);
                     clickF.setVisibility(GONE);

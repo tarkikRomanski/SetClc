@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">SetClc</string>
     <string name="action_settings">Settings</string>
-    <string name="set">Sets</string>
+    <string name="set">A simple\ncalculation</string>
     <string name="result">Result</string>
+    <string name="complex_set">Compiled\ncounting</string>
+    <string name="calculate">Calculate</string>
 </resources>

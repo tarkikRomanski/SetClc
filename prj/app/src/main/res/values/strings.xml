@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">SetClc</string>
     <string name="action_settings">Налаштування</string>
-    <string name="set">Простий \n обрахунок</string>
+    <string name="set">Простий\nобрахунок</string>
     <string name="result">Результат</string>
     <string name="calculate">Обрахувати</string>
-    <string name="complex_set">Складений \n обрахунок</string>
+    <string name="complex_set">Складений\nобрахунок</string>
 </resources>

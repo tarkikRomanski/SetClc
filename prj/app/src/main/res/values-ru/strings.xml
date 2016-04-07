@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">SetClc</string>
     <string name="action_settings">Настройки</string>
-    <string name="set">Множества</string>
+    <string name="set">Простой\nподсчет</string>
     <string name="result">Результат</string>
+    <string name="complex_set">Составленный\nподсчет</string>
+    <string name="calculate">Посчитать</string>
 </resources>
